@@ -2,6 +2,7 @@ package com.example.demobuoi1.Buoi1.repository;
 
 import com.example.demobuoi1.Buoi1.entity.Category;
 import com.example.demobuoi1.Buoi1.util.HibernateUtil;
+import jakarta.persistence.Query;
 import org.hibernate.Session;
 
 import java.util.List;
@@ -55,6 +56,24 @@ public class CategoryRepo {
             e.printStackTrace();
             session.getTransaction().rollback();
         }
+    }
+    public List<Category> searchName(String name){
+        String hql= "Select c from Category c where c.categoryName=?1";
+        Query q = session.createQuery(hql,Category.class);
+        q.setParameter(1,name);
+        return q.getResultList();
+    }
+
+    public List<Category> sapxepTheoTen(){
+        String hql = "Select c from Category c order by  c.categoryName";
+        Query q = session.createQuery(hql,Category.class);
+        return q.getResultList();
+    }
+    public List<Category> phanTrang(Integer pageNumber, Integer pageNo){
+        Query q = session.createQuery("from Category ");
+        q.setFirstResult(pageNo * pageNumber);
+        q.setFirstResult(pageNumber);
+        return q.getResultList();
     }
 
     public static void main(String[] args) {

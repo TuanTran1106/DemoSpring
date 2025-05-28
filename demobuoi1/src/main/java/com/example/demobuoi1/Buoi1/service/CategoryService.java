@@ -28,4 +28,8 @@ public class CategoryService {
         categoryRepo.delete(category);
     }
 
+    public List<Category> searchName(String name) {
+        return categoryRepo.searchName(name);
+    }
+
 }

@@ -46,7 +46,10 @@ public class CategoryServlet extends HttpServlet {
 
     }
 
-    private void searchDuLieu(HttpServletRequest request, HttpServletResponse response) {
+    private void searchDuLieu(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String name = request.getParameter("ten");
+        request.setAttribute("list", categoryService.searchName(name));
+        request.getRequestDispatcher("/buoi1/categorys.jsp").forward(request, response);
     }
 
     private void viewAddDuLieu(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
