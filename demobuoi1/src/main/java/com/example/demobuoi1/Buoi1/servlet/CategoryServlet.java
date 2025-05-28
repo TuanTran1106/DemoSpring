@@ -21,7 +21,8 @@ import java.lang.reflect.InvocationTargetException;
         "/category/update", //post
         "/category/view-add",   //get
         "/category/add",    //post
-        "/category/search"  //get
+        "/category/search",  //get
+        "/category/sapxep" //get
 })
 public class CategoryServlet extends HttpServlet {
 
@@ -42,8 +43,15 @@ public class CategoryServlet extends HttpServlet {
             this.viewAddDuLieu(request, response);
         } else if (uri.contains("search")) {
             this.searchDuLieu(request, response);
+        }else if (uri.contains("sapxep")) {
+            this.sapxepDuLieu(request, response);
         }
 
+    }
+
+    private void sapxepDuLieu(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setAttribute("list", categoryService.Sapxep());
+        request.getRequestDispatcher("/buoi1/categorys.jsp").forward(request, response);
     }
 
     private void searchDuLieu(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

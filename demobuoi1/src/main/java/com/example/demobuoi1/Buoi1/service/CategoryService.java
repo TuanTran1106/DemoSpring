@@ -31,5 +31,8 @@ public class CategoryService {
     public List<Category> searchName(String name) {
         return categoryRepo.searchName(name);
     }
+    public List<Category> Sapxep() {
+        return categoryRepo.sapxepTheoTen();
+    }
 
 }

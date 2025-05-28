@@ -4,11 +4,11 @@
     <title>Title</title>
 </head>
 <body>
-MSSV:
+MSSV: ${cate.id}
 <br/>
-Cate code:
+Cate code: ${cate.categoryCode}
 <br/>
-Cate name:
+Cate name: ${cate.categoryName}
 <br/>
 </body>
 </html>

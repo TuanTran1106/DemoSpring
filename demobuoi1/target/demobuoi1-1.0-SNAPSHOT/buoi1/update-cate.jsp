@@ -7,12 +7,12 @@ change this template use File | Settings | File Templates. --%>
     <title>Title</title>
 </head>
 <body>
-<form action="">
-    Cate code: <input type="text" name="mssv"/>
+<form action="/category/update?id=${cate.id}" method="post">
+    Cate code: <input type="text" name="categoryCode" value="${cate.categoryCode}"/>
     <br/>
-    Cate name: <input type="text" name="ten"/>
+    Cate name: <input type="text" name="categoryName" value="${cate.categoryName}"/>
     <br/>
-    <button>Update</button>
+    <button type="submit">Update</button>
 </form>
 </body>
 </html>
